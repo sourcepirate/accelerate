@@ -213,7 +213,8 @@ public class MainActivity extends Activity implements LocationListener,
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
                     return;
                 }
-                this.locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+                this.locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1, this);
+                this.locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, this);
                 this.onLocationChanged(null);
                 long timestamp = System.currentTimeMillis();
                 SpeedData data = new SpeedData(timestamp, 0);
